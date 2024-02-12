@@ -1,5 +1,6 @@
 from dtw import *
 
+
 def comparePatterns(first_pattern, second_pattern):
     """
     Given two lists, compares them using dtw algorithm  
@@ -12,3 +13,5 @@ def comparePatterns(first_pattern, second_pattern):
     """
     alignment_result = dtw(first_pattern, second_pattern, keep_internals=True)
     return alignment_result.distance
+
+

@@ -8,7 +8,13 @@ import normalize_utils as nu
 
 INCREMENT = 25
 SMA_VALUE = 3
-    
+
+
+# ¿Posibles mejoras? Para implementar las mejoras tengo que hacer primero la interfaz, CENTRARME EN LA INTERFAZ PARA PRUEBAS Y LUEGO ESTO:
+# no investiga distintos tamaños de ventana, solo el tamaño de ventana que se le pasa por parámetro
+# ¿Poner dos entradas para el tamaño de ventana, uno para los actuales y otro para los históricos?¿Hacerlo separado historico y actual directamente
+# ¿Poner como parámetro también el número de patrones con los que se hace la comparación en findCommonPattern?
+# 
 def findCurrentPatterns(company_dataframe, patterns_dictionary, company_name):
     """Find patterns that are occuring the day of the search  
     
@@ -28,7 +34,7 @@ def findCurrentPatterns(company_dataframe, patterns_dictionary, company_name):
     new_pattern_type, distance = pattern_utils.findCommonPattern(normalized_vector, patterns_dictionary)
     if distance < 30:
         pattern_tendency = tc.findPatternTendency(company_dataframe, company_dataframe, new_pattern_type)
-        if pattern_tendency != None:
+        if pattern_tendency != None:#tipo patron  dataframe donde se encontró nombcomp  fecha inicial                       fecha final           Tendencia del patrón  distancia  puntos de interés en los que dibujar una línea en el canvas final
             new_pattern = p.Pattern(new_pattern_type, company_dataframe, company_name, str(company_dataframe.iloc[0].name), str(company_dataframe.iloc[-1].name), None, distance, pattern_tendency[2])
             results.append(new_pattern)
 

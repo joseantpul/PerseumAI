@@ -1,0 +1,10 @@
+dtw-python
+yfinance
+numpy
+matplotlib
+pandas
+tk
+tkcalendar
+pillow
+PyQt5
+PyQt5-tools
