@@ -13,9 +13,13 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from matplotlib.figure import Figure
 
 class MplCanvas(FigureCanvasQTAgg):
-    def __init__(self, parent=None, width=5, height=4, dpi=100):
+    def __init__(self, parent=None, width=5, height=4, dpi=100, is_even=True):
         fig = Figure(figsize=(width, height), dpi=dpi)
         self.axes = fig.add_subplot(111)
+        if is_even:
+            self.axes.text(0.5, 0.5, '✔️', fontsize=20, color='green', ha='center', va='center')
+        else:
+            self.axes.text(0.5, 0.5, '❌', fontsize=20, color='red', ha='center', va='center')
         super(MplCanvas, self).__init__(fig)
 
 
@@ -49,31 +53,19 @@ class Ui_Form(object):
         self.pushButton.setText(_translate("Form", "Exit"))
    
     def add(self):
-        '''
-        #sc = MplCanvas(self, width=5, height=4, dpi=100)
-        #sc.axes.plot([0,1,2,3,4], [10,1,20,3,40])
-       
-        for i in range(1,10):
-            #object = QtWidgets.QLabel("TextLabel")
-            #self.verticalLayout_5.addWidget(object)
-            sc = MplCanvas(self, width=5, height=4, dpi=100)
-            sc.axes.plot([0,1,2,3,4], [10,1,20,3,40])
-            self.verticalLayout_5.addWidget(sc)
-        '''
         total_height = 0
         for i in range(1, 10):
             sc = MplCanvas(self, width=5, height=4, dpi=100)
             sc.axes.plot([0,1,2,3,4], [10,1,20,3,40])
-        
-        # Establece el tamaño mínimo de cada gráfica para evitar que se reduzca
-            sc.setMinimumSize(500, 400)  # Ajusta estos valores según tus necesidades
+            # Establece el tamaño mínimo de cada gráfica para evitar que se reduzca
+            sc.setMinimumSize(500, 400)  
 
-        # Añade la gráfica al layout
+            # Añade la gráfica al layout
             self.verticalLayout_5.addWidget(sc)
 
-        # Actualiza la altura total del contenedor
+            # Actualiza la altura total del contenedor
             total_height += 400  # Asegúrate de que este valor coincida con el tamaño mínimo de la gráfica
-    # Establece el tamaño mínimo del contenedor de las gráficas
+        # Establece el tamaño mínimo del contenedor de las gráficas
         self.scrollAreaWidgetContents_4.setMinimumSize(QtCore.QSize(500, total_height))
 
 
