@@ -204,6 +204,8 @@ class MenuWindow:
             input_text = text_file.read()
             self.companies = self.parseTxt(input_text)
             text_file.close()
+        print(self.InitialDate.get_date())
+        print(type(self.InitialDate.get_date()))
     
     def parseTxt(self, text):
         """Parse a given txt file"""
@@ -291,7 +293,6 @@ class ShowPatternsWindow:
         elif mode == 1:
             self.showPatterns(results[1])
             
-
     def goBack(self):
         """Go back to ResultsWindow"""
         self.frame.destroy()

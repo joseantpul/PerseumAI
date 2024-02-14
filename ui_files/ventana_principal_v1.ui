@@ -164,7 +164,7 @@
      <string>Fecha final</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="openfilebtn">
     <property name="geometry">
      <rect>
       <x>500</x>
@@ -177,20 +177,25 @@
      <string>Open File</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="selectedfile">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>400</x>
       <y>350</y>
-      <width>251</width>
+      <width>481</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Selected file: Ninguno</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="historicpatternsbtn">
     <property name="geometry">
      <rect>
       <x>310</x>
@@ -203,7 +208,7 @@
      <string>Mostrar Patrones Historicos</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="currentpatternsbtn">
     <property name="geometry">
      <rect>
       <x>600</x>
